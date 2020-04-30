@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import { connect } from 'react-redux';
+import { ThemeProvider } from '@material-ui/core/styles';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Preloader from 'shared/Preloader';
+import ReduxToastr from 'shared/ReduxToastr';
+import { LIGHT, DARK } from 'utils/variables/theme';
+import AdminRoute from 'components/Admin/AdminRoute';
+const MainPage = lazy(() => import('./pages/MainPage'));
+const AdminPage = lazy(() => import('./pages/admin/src'));
 
-export default App;
+const App = (props) => {
+	const theme = props.theme === 'light' ? LIGHT : DARK;
+	return (
+		<BrowserRouter>
+			<ThemeProvider theme={theme}>
+				<Suspense fallback={<Preloader />}>
+					<Switch>
+						<AdminRoute path="/admin" component={AdminPage} />
+						<Route path="/" component={MainPage} />
+					</Switch>
+				</Suspense>
+				<ReduxToastr />
+			</ThemeProvider>
+		</BrowserRouter>
+	);
+};
+
+const mapStateToProps = (state) => ({
+	theme: state.theme.theme,
+});
+
+export default connect(mapStateToProps)(App);
