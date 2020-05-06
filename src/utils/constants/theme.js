@@ -5,7 +5,7 @@ export const LIGHT = createMuiTheme({
 		type: 'light',
 		color: '#3D3B69',
 		textColor: '#3D3B69',
-		backgroundColor: '#ecf1fa',
+		backgroundColor: '#d5fcbb',
 		paper: '#ffffff',
 		font: '"Open Sans", sans-serif',
 	},

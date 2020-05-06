@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import toastr from 'utils/toastr/toastrValid';
-import { GET, PUT, POST, DELETE } from 'utils/variables/method';
+import { GET, PUT, POST, DELETE } from 'utils/constants/method';
 
 const BASE_URL = 'http://localhost:5000/';
 

@@ -11,28 +11,11 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%',
 	},
 	fixHeiht: {
-		height: '100px',
-		[theme.breakpoints.up('sm')]: {
-			height: '250px',
-		},
+		height: '300px',
 	},
-
-	icons: {
-		width: '128px',
-	},
-	icon: {
-		display: 'flex',
-		justifyContent: 'center',
-	},
-	lang: {
-		display: 'flex',
-		justifyContent: 'center',
-		[theme.breakpoints.up('lg')]: {
-			justifyContent: 'flex-start',
-		},
-	},
-	link: {
-		color: theme.palette.color,
+	center: {
+		padding: '20px 0',
+		textAlign: 'center',
 	},
 }));
 

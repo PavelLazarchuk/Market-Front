@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const StyledLink = ({ to, className, children }) => (
-	<Link to={to} className={className}>
+const StyledLink = ({ to, className, children, onClick }) => (
+	<Link to={to} onClick={onClick} className={className}>
 		{children}
 	</Link>
 );

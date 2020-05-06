@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, isAdmin, ...rest }) => (
 	<Route {...rest} render={(props) => (isAdmin ? <Component {...props} /> : <AdminLogin />)} />
 );
 
-const mapStateToProps = (state) => ({
-	isAdmin: state.auth.isAdmin,
+const mapStateToProps = ({ auth }) => ({
+	isAdmin: auth.isAdmin,
 });
 export default connect(mapStateToProps)(PrivateRoute);

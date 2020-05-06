@@ -2,17 +2,16 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import PageWrap from 'shared/PageWrap';
-import withLanguage from 'hoc/withLanguage';
-import CompanyComments from './CompanyComments/Comments';
-import CandidateComments from './CandidateComments/Comments';
+import ProductComments from './CompanyComments/Comments';
+import AdminComments from './CandidateComments/Comments';
 
-const Comment = ({ t }) => (
-	<PageWrap text={t('REVIEW')}>
+const Comment = () => (
+	<PageWrap text="Комментарі">
 		<Switch>
-			<Route path="/company/review" component={CompanyComments} />
-			<Route path="/candidate/review" component={CandidateComments} />
+			<Route path="/product/comment" component={ProductComments} />
+			<Route path="/admin/comment" component={AdminComments} />
 		</Switch>
 	</PageWrap>
 );
 
-export default withLanguage(Comment);
+export default Comment;

@@ -5,14 +5,3 @@ export const onChangeFactory = (state, setState) => (event) => {
 export const onChangeNameFactory = (state, setState) => (name, value) => {
 	setState({ ...state, [name]: value });
 };
-
-export const changeSliderFactory = (state, setState) => (name, id) => (e, value) => {
-	setState({
-		...state,
-		[name]: {
-			name,
-			id,
-			experience: value,
-		},
-	});
-};

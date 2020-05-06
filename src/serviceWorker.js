@@ -1,7 +1,4 @@
 /* eslint-disable no-console */
-// This optional code is used to register a service worker.
-// register() is not called by default.
-
 const isLocalhost = Boolean(
 	window.location.hostname === 'localhost' ||
 		window.location.hostname === '[::1]' ||
