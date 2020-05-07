@@ -4,7 +4,7 @@ const initialState = {
 	theme: localStorage.getItem('theme') || 'light',
 };
 
-export default function (state = initialState, action) {
+export default (state = initialState, action) => {
 	switch (action.type) {
 		case CHANGE_TO_DARK:
 			return {
@@ -19,4 +19,4 @@ export default function (state = initialState, action) {
 		default:
 			return state;
 	}
-}
+};

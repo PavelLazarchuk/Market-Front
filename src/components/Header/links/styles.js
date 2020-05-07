@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	hidden: {
-		[theme.breakpoints.up(670)]: {
+		[theme.breakpoints.up(700)]: {
 			display: 'none',
 		},
 	},

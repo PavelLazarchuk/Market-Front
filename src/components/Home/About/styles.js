@@ -5,6 +5,9 @@ const useStyles = makeStyles((theme) => ({
 		padding: '40px 0',
 		display: 'flex',
 		justifyContent: 'space-around',
+		[theme.breakpoints.down(500)]: {
+			flexDirection: 'column',
+		},
 	},
 	aboutItem: {
 		padding: '0 10px',
@@ -16,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: 10,
 		fontWeight: 'bold',
 		color: theme.palette.color,
+		[theme.breakpoints.down(670)]: {
+			fontSize: 22,
+		},
 	},
 	key: {
 		fontSize: 20,

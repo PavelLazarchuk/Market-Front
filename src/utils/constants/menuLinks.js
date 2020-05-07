@@ -1,30 +1,42 @@
 export const NAVBAR = [
 	{
-		to: '/products/meat',
-		text: "М'ясо",
+		text: 'Meat',
+		to: '/product/category/meat',
+		id: '5eb170aa1e7ab922540be279',
 	},
 	{
-		to: '/products/seafood',
-		text: 'Морепродукти',
+		text: 'Seafood',
+		to: '/product/category/seafood',
+		id: '5eb41edd1a9cc31adc147a00',
 	},
 	{
-		to: '/products/vegetables',
-		text: 'Овочі',
+		text: 'Vegetables',
+		to: '/product/category/vegetables',
+		id: '5eb41eee1a9cc31adc147a01',
 	},
 	{
-		to: '/products/fruits',
-		text: 'Фрукти',
+		text: 'Fruits',
+		to: '/product/category/fruits',
+		id: '5eb41f0d1a9cc31adc147a02',
 	},
 	{
-		to: '/products/eggs',
-		text: 'Яйця',
+		text: 'Eggs',
+		to: '/product/category/eggs',
+		id: '5eb41f151a9cc31adc147a03',
 	},
 	{
-		to: '/products/dairy',
-		text: 'Молочні продукти',
+		text: 'Dairy',
+		to: '/product/category/dairy',
+		id: '5eb41f1b1a9cc31adc147a04',
 	},
 	{
-		to: '/products/bread',
-		text: 'Хліб',
+		text: 'Bread',
+		to: '/product/category/bread',
+		id: '5eb41f1e1a9cc31adc147a05',
 	},
 ];
+
+export const getCategoryId = (name) => {
+	const i = NAVBAR.findIndex((e) => e.text.toLowerCase() === name);
+	return NAVBAR[i].id;
+};

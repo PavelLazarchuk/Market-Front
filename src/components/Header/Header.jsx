@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 
+import Cart from './Cart';
 import Menu from './links/Menu';
 import useStyles from './styles';
 import Links from './links/Links';
@@ -30,15 +31,16 @@ const Header = ({ thema, changeToLight, changeToDark }) => {
 			<Container className={classes.flex}>
 				<img className={classes.logo} src={logo} alt="pic" />
 				<div className={classes.menuFlex}>
-					<input placeholder="Пошук..." className={classes.search} />
+					<input placeholder="Search..." className={classes.search} />
 					<div className={classes.lgMenu}>
 						<Links links={NAVBAR} />
 					</div>
 				</div>
-				<Box component="div">
+				<Box component="div" className={classes.flex}>
 					<IconButton onClick={() => (thema === 'light' ? darkTheme() : lightTheme())}>
 						<img src={thema === 'light' ? dark : light} className={classes.themeIcon} alt="pic" />
 					</IconButton>
+					<Cart classes={classes} />
 					<Menu />
 				</Box>
 			</Container>

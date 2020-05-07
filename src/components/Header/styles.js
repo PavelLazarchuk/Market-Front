@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 	flex: {
 		display: 'flex',
 		justifyContent: 'space-between',
-		padding: 'none',
+		// padding: 'none',
 		alignItems: 'center',
 	},
 	themeIcon: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 		height: 60,
 	},
 	lgMenu: {
-		[theme.breakpoints.down(670)]: {
+		[theme.breakpoints.down(700)]: {
 			display: 'none',
 		},
 	},
@@ -31,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
 		flexDirection: 'column',
 		alignItems: 'center',
 	},
+	cart: {
+		marginRight: 5,
+		position: 'relative',
+		color: theme.palette.color,
+	},
 	search: {
 		marginBottom: 10,
 		padding: '5px 20px',
@@ -38,6 +43,13 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.color,
 		background: '#ebedf0',
 		border: 0,
+		[theme.breakpoints.down(700)]: {
+			marginBottom: 0,
+		},
+		[theme.breakpoints.down(500)]: {
+			padding: '5px',
+			width: 100,
+		},
 	},
 }));
 

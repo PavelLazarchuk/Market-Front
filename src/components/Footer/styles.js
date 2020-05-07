@@ -11,7 +11,10 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%',
 	},
 	fixHeiht: {
-		height: '300px',
+		height: 300,
+		[theme.breakpoints.down(700)]: {
+			height: 150,
+		},
 	},
 	center: {
 		padding: '20px 0',

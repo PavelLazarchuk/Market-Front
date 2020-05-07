@@ -54,6 +54,13 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 30,
 		marginBottom: 10,
 		color: '#000000',
+		'&:last-child': {
+			fontSize: 24,
+			marginBottom: 0,
+		},
+		[theme.breakpoints.down(450)]: {
+			fontSize: 24,
+		},
 	},
 }));
 

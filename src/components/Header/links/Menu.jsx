@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withState } from 'recompose';
 import Drawer from '@material-ui/core/Drawer';
 
@@ -7,10 +7,8 @@ import useStyles from './styles';
 import Button from 'shared/Button';
 import { NAVBAR } from 'utils/constants/menuLinks';
 
-const Menu = () => {
+const Menu = ({ open, setOpen }) => {
 	const classes = useStyles();
-	const [open, setOpen] = useState(false);
-
 	return (
 		<div className={classes.hidden}>
 			<Button onClick={() => setOpen(true)} className={classes.menu}>
@@ -23,4 +21,4 @@ const Menu = () => {
 	);
 };
 
-export default withState('counter', 'setCounter', false)(Menu);
+export default withState('open', 'setOpen', false)(Menu);
