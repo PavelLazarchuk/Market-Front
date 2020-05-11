@@ -9,9 +9,9 @@ const StyledLink = ({ to, className, children, onClick }) => (
 );
 
 StyledLink.propTypes = {
+	className: PropTypes.string,
 	to: PropTypes.string.isRequired,
 	children: PropTypes.node.isRequired,
-	className: PropTypes.string.isRequired,
 };
 
 export default StyledLink;

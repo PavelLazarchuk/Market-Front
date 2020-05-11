@@ -2,15 +2,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 	link: {
-		padding: '5px 10px',
-		marginRight: '10px',
-		textDecoration: 'none',
+		fontSize: 16,
+		marginRight: 10,
 		fontWeight: 'bold',
-		fontSize: '16px',
+		padding: '5px 10px',
 		transition: 'all 0.4s',
-		borderBottom: '1px solid transparent',
+		textDecoration: 'none',
 		color: theme.palette.color,
 		fontFamily: theme.palette.font,
+		borderBottom: '1px solid transparent',
 		fontStyle: 'italic',
 		'&:hover': {
 			color: '#26a69a',
@@ -21,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
 			marginRight: 0,
 		},
 		[theme.breakpoints.down(820)]: {
-			fontSize: '14px',
+			fontSize: 14,
 		},
-		[theme.breakpoints.down(670)]: {
-			fontSize: 18,
+		[theme.breakpoints.down(700)]: {
+			fontSize: 20,
 			marginRight: 0,
 			borderRadius: 0,
-			padding: '10px 15px',
+			padding: '15px 0 10px 20px',
+			borderBottom: '1px solid #3D3B69',
 			backgroundColor: theme.palette.backgroundColor,
 		},
 	},
@@ -45,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
 		width: 300,
 	},
 	menu: {
-		padding: '5px',
 		border: `1px solid ${theme.palette.color}`,
 	},
 }));

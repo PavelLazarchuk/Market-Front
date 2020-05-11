@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 
+import Text from 'shared/Text';
 import useStyles from './styles';
 
 export default function Footer() {
@@ -11,7 +12,7 @@ export default function Footer() {
 			<div className={classes.fixHeiht}></div>
 			<footer className={classes.root}>
 				<Container>
-					<div className={classes.center}>All Rights Reserved &#169; 2020 Market.com, Inc.</div>
+					<Text className={classes.center}>All Rights Reserved &#169; 2020 Market.com, Inc.</Text>
 				</Container>
 			</footer>
 		</>

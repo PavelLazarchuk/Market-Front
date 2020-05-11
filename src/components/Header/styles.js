@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
 	flex: {
 		display: 'flex',
 		justifyContent: 'space-between',
-		// padding: 'none',
 		alignItems: 'center',
 	},
 	themeIcon: {
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 	},
 	cart: {
-		marginRight: 5,
+		marginRight: 10,
 		position: 'relative',
 		color: theme.palette.color,
 	},
@@ -49,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.down(500)]: {
 			padding: '5px',
 			width: 100,
+		},
+		[theme.breakpoints.down(390)]: {
+			width: 70,
 		},
 	},
 }));

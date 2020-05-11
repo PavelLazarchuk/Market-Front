@@ -1,4 +1,5 @@
-// import { CHANGE_TO_DARK, CHANGE_TO_LIGHT } from './types';
+import { ERROR } from 'utils/actions/errorAxios';
+import { GET_ONE_PRODUCT, GET_PRODUCT_LIST } from './types';
 
 const initialState = {
 	product: null,
@@ -10,16 +11,27 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case 'CHANGE_TO_DARK':
+		case GET_PRODUCT_LIST:
 			return {
 				...state,
-				product: 'dark',
+				isError: false,
+				productList: action.payload,
 			};
-		case 'CHANGE_TO_LIGHT':
+
+		case GET_ONE_PRODUCT:
 			return {
 				...state,
-				product: 'light',
+				isError: false,
+				product: action.payload,
 			};
+
+		case ERROR:
+			return {
+				...state,
+				isError: true,
+				error: action.payload,
+			};
+
 		default:
 			return state;
 	}
