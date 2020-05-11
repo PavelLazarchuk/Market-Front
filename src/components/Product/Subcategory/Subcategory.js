@@ -3,22 +3,21 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import SubcategoryList from './SubcategoryList';
-import { getCategoryId } from 'utils/constants/menuLinks';
 import { getSubcategory } from 'store/admin/subcategoryAction';
 
-const Subcategory = ({ list, getSubcategory }) => {
-	const { category } = useParams();
+const Subcategory = ({ list, title, getSubcategory }) => {
+	const { id } = useParams();
 
 	useEffect(() => {
-		const id = getCategoryId(category);
 		getSubcategory(`categoryId=${id}`);
-	}, [category, getSubcategory]);
+	}, [id, getSubcategory]);
 
-	return <SubcategoryList list={list} title={category} />;
+	return <SubcategoryList list={list} title={title} />;
 };
 
 const mapStateToProps = ({ admin }) => ({
 	list: admin.subcategory,
+	title: admin.categoryTitle,
 });
 
 export default connect(mapStateToProps, { getSubcategory })(Subcategory);

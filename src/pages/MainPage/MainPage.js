@@ -1,11 +1,12 @@
 import React, { Suspense, lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Preloader from 'shared/Preloader';
 const HomePage = lazy(() => import('../HomePage'));
+const NotFound = lazy(() => import('../NotFound'));
 const SellerPage = lazy(() => import('../SellerPage'));
 const ProductPage = lazy(() => import('../ProductPage'));
 
@@ -22,13 +23,14 @@ const MainPage = () => {
 	return (
 		<div className={classes.root}>
 			<Header />
-			<Switch>
-				<Suspense fallback={<Preloader />}>
+			<Suspense fallback={<Preloader />}>
+				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<Route path="/seller" component={SellerPage} />
 					<Route path="/product" component={ProductPage} />
-				</Suspense>
-			</Switch>
+					<Route component={NotFound} />
+				</Switch>
+			</Suspense>
 			<Footer />
 		</div>
 	);

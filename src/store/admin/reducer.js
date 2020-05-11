@@ -1,9 +1,10 @@
 import { ERROR } from 'utils/actions/errorAxios';
-import { SUCCESS_CATEGORY, SUCCESS_SUBCATEGORY, SET_SUBCATEGORY } from './types';
+import { SUCCESS_CATEGORY, SET_CATEGORY, SUCCESS_SUBCATEGORY, SET_SUBCATEGORY } from './types';
 
 let initialValue = {
 	category: [],
 	subcategory: [],
+	categoryTitle: '',
 	subcategoryTitle: '',
 	error: null,
 	isError: false,
@@ -23,6 +24,13 @@ export default (state = initialValue, action) => {
 				...state,
 				isError: false,
 				subcategory: action.payload,
+			};
+
+		case SET_CATEGORY:
+			return {
+				...state,
+				isError: false,
+				categoryTitle: action.payload,
 			};
 
 		case SET_SUBCATEGORY:

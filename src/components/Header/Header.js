@@ -13,7 +13,6 @@ import Links from './links/Links';
 import dark from './img/dark.png';
 import logo from './img/LOGO.png';
 import light from './img/light.png';
-import { NAVBAR } from 'utils/constants/menuLinks';
 import { changeToDark, changeToLight } from 'store/theme/themeActions';
 
 const Header = ({ thema, changeToLight, changeToDark }) => {
@@ -36,7 +35,7 @@ const Header = ({ thema, changeToLight, changeToDark }) => {
 				<div className={classes.menuFlex}>
 					<input placeholder="Search..." className={classes.search} />
 					<div className={classes.lgMenu}>
-						<Links links={NAVBAR} />
+						<Links />
 					</div>
 				</div>
 				<Box component="div" className={classes.flex}>

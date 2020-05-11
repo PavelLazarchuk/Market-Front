@@ -5,7 +5,6 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Links from './Links';
 import useStyles from './styles';
 import Button from 'shared/Button';
-import { NAVBAR } from 'utils/constants/menuLinks';
 
 const Menu = ({ open, setHidden }) => {
 	const classes = useStyles();
@@ -16,14 +15,14 @@ const Menu = ({ open, setHidden }) => {
 				Menu
 			</Button>
 			<SwipeableDrawer
-				anchor="right"
 				open={open}
+				anchor="right"
 				onOpen={setHidden}
 				onClose={setHidden}
 				disableDiscovery={iOS}
 				disableBackdropTransition={!iOS}
 			>
-				<Links className={classes.width} links={NAVBAR} click={setHidden} />
+				<Links className={classes.width} click={setHidden} />
 			</SwipeableDrawer>
 		</div>
 	);
