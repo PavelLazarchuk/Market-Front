@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
 		'&:hover': {
 			boxShadow: '0px 5px 10px rgba(230, 235, 255, 0.5)',
 		},
+		[theme.breakpoints.down(700)]: {
+			flexBasis: '45%',
+		},
+		[theme.breakpoints.down(480)]: {
+			flexBasis: '95%',
+		},
 	},
 	link: {
 		fontSize: 20,

@@ -5,8 +5,9 @@ export const LIGHT = createMuiTheme({
 		type: 'light',
 		color: '#3D3B69',
 		textColor: '#3D3B69',
-		backgroundColor: '#d5fcbb',
-		paper: '#ffffff',
+		cardColor: '#ffffff',
+		paper: '#fbf7f4', //#ffffff
+		backgroundColor: '#fbf7f4', //#d5fcbb
 		font: '"Open Sans", sans-serif',
 	},
 	breakpoints: {
@@ -23,11 +24,12 @@ export const LIGHT = createMuiTheme({
 export const DARK = createMuiTheme({
 	palette: {
 		type: 'dark',
-		backgroundColor: '#424242',
-		textColor: '#c9ced9',
 		color: '#26a69a',
-		bgLogo: '#22c1c3',
 		paper: '#192c55',
+		bgLogo: '#22c1c3',
+		cardColor: '#424242',
+		textColor: '#c9ced9',
+		backgroundColor: '#424242',
 		font: '"Open Sans", sans-serif',
 	},
 	breakpoints: {

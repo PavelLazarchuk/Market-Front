@@ -13,7 +13,9 @@ const ProductList = ({ list, title }) => {
 					<div className={classes.err}>There are no products in this category yet.</div>
 				)}
 				{list.length > 0 &&
-					list.map((elem) => <ProductItem key={elem._id} classes={classes} {...elem} />)}
+					list.map((elem) => (
+						<ProductItem key={elem._id} classes={classes} data={elem} {...elem} />
+					))}
 			</div>
 		</PageWrap>
 	);
