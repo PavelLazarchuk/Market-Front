@@ -16,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
 			height: 150,
 		},
 	},
+	notHome: {
+		height: 50,
+	},
 	center: {
 		padding: '20px 0',
 		textAlign: 'center',

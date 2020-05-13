@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 		width: 300,
 	},
 	menu: {
+		color: theme.palette.color,
 		border: `1px solid ${theme.palette.color}`,
 	},
 }));

@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 	},
 	themeIcon: {
-		width: '50px',
-		height: '50px',
+		width: '45px',
+		height: '45px',
 	},
 	logo: {
 		height: 60,

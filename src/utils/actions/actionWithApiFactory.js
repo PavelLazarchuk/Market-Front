@@ -4,6 +4,7 @@ import tostrActions from 'utils/toastr/toastrAction';
 
 const actionApiFactory = (url, method, action, msg) => (params, body, headers) => (dispatch) => {
 	const UPL = params ? `${url}${params}` : url;
+
 	API[method](UPL, body, headers)
 		.then((data) => {
 			msg && tostrActions(data, msg);

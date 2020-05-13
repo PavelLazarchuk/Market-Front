@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import Information from './Information';
+import Preloader from 'shared/Preloader';
 import { getOneProduct } from 'store/product/action';
 
 const OneProduct = ({ product, getOneProduct }) => {
@@ -11,7 +13,7 @@ const OneProduct = ({ product, getOneProduct }) => {
 		getOneProduct(id);
 	}, [id, getOneProduct]);
 
-	return <div></div>;
+	return product ? <Information data={product} /> : <Preloader size={true} />;
 };
 
 const mapStateToProps = ({ product }) => ({

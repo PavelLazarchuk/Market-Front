@@ -9,11 +9,18 @@ import Title from '../Title';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		backgroundColor: theme.palette.paper,
-		padding: '40px',
+		padding: 40,
 		margin: '20px auto',
-		marginBottom: '40px',
-		maxWidth: '1170px',
+		marginBottom: 40,
+		maxWidth: 1170,
 		boxShadow: '0px 10px 15px rgba(230, 235, 255, 0.5)',
+		[theme.breakpoints.down(640)]: {
+			padding: 20,
+		},
+		[theme.breakpoints.down(500)]: {
+			padding: 5,
+			marginBottom: 10,
+		},
 	},
 }));
 

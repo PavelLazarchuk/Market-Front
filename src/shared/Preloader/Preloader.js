@@ -9,10 +9,10 @@ const useStyle = makeStyles((theme) => ({
 	},
 }));
 
-export default function Preloader() {
+export default function Preloader({ size }) {
 	const classes = useStyle();
 	return (
-		<div className={`${style.preload} ${classes.root}`}>
+		<div className={`${size ? style.small : style.preload} ${classes.root}`}>
 			<div className={style.loader}></div>
 		</div>
 	);

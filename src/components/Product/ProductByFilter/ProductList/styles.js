@@ -2,54 +2,59 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 	err: {
-		color: theme.palette.textcColor,
 		fontSize: 24,
 		textAlign: 'center',
+		color: theme.palette.textColor,
 	},
 	flex: {
 		display: 'flex',
 		flexWrap: 'wrap',
 		alignItems: 'center',
-		// justifyContent: 'space-around',
+		margin: 0,
+		padding: 0,
+		justifyContent: 'space-around',
 	},
 	item: {
 		width: 250,
-		borderRadius: 6,
 		position: 'relative',
-		margin: '0 25px 25px 0',
 		textDecoration: 'none',
-		border: '1px solid #e3e3e2',
+		margin: '0 25px 25px 0',
 		background: theme.palette.cardColor,
-		// [theme.breakpoints.down(900)]: {
-		// 	flexBasis: '45%',
-		// },
-		// [theme.breakpoints.down(550)]: {
-		// 	flexBasis: '95%',
-		// },
+		[theme.breakpoints.down(640)]: {
+			margin: '0 0 25px 0',
+		},
 	},
 	img: {
-		background: 'black',
+		background: '#999999',
 		height: 200,
 		width: '100%',
-		borderRadius: 2,
 	},
 	content: {
 		padding: '10px 15px',
+		borderStyle: 'solid',
+		borderColor: '#e3e3e2',
+		borderRadius: '0 0 6px 6px',
+		borderWidth: '0 1px 1px 1px',
 	},
 	caption: {
 		fontSize: 22,
-		color: theme.palette.color,
 		marginBottom: 5,
+		color: theme.palette.color,
+		'&:hover': {
+			textDecoration: 'underline',
+		},
 	},
 	company: {
-		fontSize: 20,
-		color: theme.palette.color,
+		fontSize: 16,
+		display: 'flex',
 		marginBottom: 5,
+		alignItems: 'center',
+		color: theme.palette.textColor,
 	},
 	description: {
-		fontSize: 16,
-		color: theme.palette.textColor,
+		fontSize: 14,
 		marginBottom: 15,
+		color: theme.palette.textColor,
 	},
 	footer: {
 		display: 'flex',

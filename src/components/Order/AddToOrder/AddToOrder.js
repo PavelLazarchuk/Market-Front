@@ -8,7 +8,11 @@ import { addToOrder } from 'store/order/action';
 
 const AddToOrder = ({ absolute, data, addToOrder }) => {
 	const classes = useStyles();
-	const add = (e) => e.preventDefault();
+	const add = (e) => {
+		e.preventDefault();
+		const item = {};
+		addToOrder(item);
+	};
 
 	return (
 		<Button onClick={add} className={`${classes.card} ${absolute && classes.absolute}`}>
