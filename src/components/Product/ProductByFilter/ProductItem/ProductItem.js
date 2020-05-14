@@ -5,9 +5,13 @@ import Text from 'shared/Text';
 import Link from 'shared/Link';
 import AddToOrder from 'components/Order/AddToOrder';
 
-const ProductItem = ({ _id, name, company, currentPrice, description, classes, data }) => (
+const ProductItem = ({ _id, image, name, company, currentPrice, description, classes, data }) => (
 	<Link to={`/product/item/${_id}`} className={classes.item}>
-		<div className={classes.img}>This is image</div>
+		{image ? (
+			<img src={image} alt="prod" className={classes.img} />
+		) : (
+			<div className={classes.notimg}>This is image</div>
+		)}
 		<div className={classes.content}>
 			<Text className={classes.caption}>{name}</Text>
 			<Text className={classes.company}>

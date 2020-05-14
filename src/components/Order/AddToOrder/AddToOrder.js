@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 import useStyles from './styles';
@@ -17,6 +18,7 @@ const AddToOrder = ({ absolute, data, addToOrder }) => {
 	return (
 		<Button onClick={add} className={`${classes.card} ${absolute && classes.absolute}`}>
 			<ShoppingCartIcon size="small" />
+			<Route path="/product/item/:id" render={() => <div className={classes.buy}>BUY</div>} />
 		</Button>
 	);
 };

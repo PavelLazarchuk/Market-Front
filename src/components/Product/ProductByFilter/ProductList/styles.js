@@ -10,8 +10,6 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		flexWrap: 'wrap',
 		alignItems: 'center',
-		margin: 0,
-		padding: 0,
 		justifyContent: 'space-around',
 	},
 	item: {
@@ -25,9 +23,13 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	img: {
-		background: '#999999',
 		height: 200,
 		width: '100%',
+	},
+	notimg: {
+		height: 200,
+		width: '100%',
+		background: '#999999',
 	},
 	content: {
 		padding: '10px 15px',

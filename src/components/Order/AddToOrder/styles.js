@@ -11,10 +11,16 @@ const useStyles = makeStyles(() => ({
 			backgroundColor: '#5cb95c',
 		},
 	},
+	buy: {
+		marginLeft: 10,
+	},
 	absolute: {
 		position: 'absolute',
 		top: 150,
 		right: 15,
+		'&:hover': {
+			top: 151,
+		},
 	},
 }));
 

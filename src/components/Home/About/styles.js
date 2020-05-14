@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: '40px 0',
 		display: 'flex',
 		justifyContent: 'space-around',
-		[theme.breakpoints.down(500)]: {
+		[theme.breakpoints.down(520)]: {
 			flexDirection: 'column',
 		},
 	},
@@ -13,6 +13,12 @@ const useStyles = makeStyles((theme) => ({
 		padding: '0 10px',
 		flexBasis: '30%',
 		textAlign: 'center',
+		[theme.breakpoints.down(1000)]: {
+			flexBasis: '40%',
+		},
+		[theme.breakpoints.down(780)]: {
+			flexBasis: '45%',
+		},
 	},
 	title: {
 		fontSize: 30,

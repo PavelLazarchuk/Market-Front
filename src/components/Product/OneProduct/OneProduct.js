@@ -4,20 +4,28 @@ import { useParams } from 'react-router-dom';
 
 import Information from './Information';
 import Preloader from 'shared/Preloader';
-import { getOneProduct } from 'store/product/action';
+import { getOneProduct, cleanOneProduct } from 'store/product/action';
 
-const OneProduct = ({ product, getOneProduct }) => {
+const OneProduct = ({ product, getOneProduct, cleanOneProduct }) => {
 	const { id } = useParams();
 
 	useEffect(() => {
 		getOneProduct(id);
-	}, [id, getOneProduct]);
+		return () => {
+			cleanOneProduct();
+		};
+	}, [id, getOneProduct, cleanOneProduct]);
 
-	return product ? <Information data={product} /> : <Preloader size={true} />;
+	return product ? <Information data={product} {...product} /> : <Preloader size={true} />;
 };
 
 const mapStateToProps = ({ product }) => ({
 	product: product.product,
 });
 
-export default connect(mapStateToProps, { getOneProduct })(OneProduct);
+const mapDispatchToProps = {
+	getOneProduct,
+	cleanOneProduct,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OneProduct);

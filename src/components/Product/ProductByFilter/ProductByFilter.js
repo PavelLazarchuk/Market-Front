@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import ProductList from './ProductList';
-import { getProductByFilter } from 'store/product/action';
+import Preloader from 'shared/Preloader';
+import { getProductByFilter, cleanProductList } from 'store/product/action';
 
-const ProductByFilter = ({ title, productList, getProductByFilter }) => {
+const ProductByFilter = ({ title, productList, getProductByFilter, cleanProductList }) => {
 	const { id } = useParams();
 
 	useEffect(() => {
 		getProductByFilter(`subCategoryId=${id}`);
-	}, [id, getProductByFilter]);
+		return () => {
+			cleanProductList();
+		};
+	}, [id, getProductByFilter, cleanProductList]);
 
-	return <ProductList list={productList} title={title} />;
+	return productList ? <ProductList list={productList} title={title} /> : <Preloader size={true} />;
 };
 
 const mapStateToProps = ({ product, admin }) => ({
@@ -20,4 +24,9 @@ const mapStateToProps = ({ product, admin }) => ({
 	productList: product.productList,
 });
 
-export default connect(mapStateToProps, { getProductByFilter })(ProductByFilter);
+const mapDispatchToProps = {
+	cleanProductList,
+	getProductByFilter,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductByFilter);

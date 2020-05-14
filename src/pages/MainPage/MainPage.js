@@ -5,8 +5,10 @@ import { Route, Switch } from 'react-router-dom';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import Preloader from 'shared/Preloader';
+
 const HomePage = lazy(() => import('../HomePage'));
 const NotFound = lazy(() => import('../NotFound'));
+const OrderPage = lazy(() => import('../OrderPage'));
 const SellerPage = lazy(() => import('../SellerPage'));
 const ProductPage = lazy(() => import('../ProductPage'));
 
@@ -26,6 +28,7 @@ const MainPage = () => {
 			<Suspense fallback={<Preloader />}>
 				<Switch>
 					<Route exact path="/" component={HomePage} />
+					<Route path="/order" component={OrderPage} />
 					<Route path="/seller" component={SellerPage} />
 					<Route path="/product" component={ProductPage} />
 					<Route component={NotFound} />
