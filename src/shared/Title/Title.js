@@ -1,30 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-	title: {
-		fontFamily: theme.palette.font,
-		fontSize: '24px',
-		color: theme.palette.textColor,
-		[theme.breakpoints.up('sm')]: {
-			marginTop: '30px',
-		},
-		marginBottom: '20px',
-		textAlign: 'center',
-		[theme.breakpoints.down(600)]: {
-			fontSize: '20px',
-			marginBottom: '15px',
-		},
-	},
-}));
+import useStyles from './styles';
 
-const Title = ({ children }) => {
+const Title = ({ size, children }) => {
 	const classes = useStyles();
-	return <h1 className={classes.title}>{children}</h1>;
+	return <h1 className={size ? classes.small : classes.title}>{children}</h1>;
 };
 
 Title.propTypes = {
+	size: PropTypes.string,
 	children: PropTypes.node.isRequired,
 };
 

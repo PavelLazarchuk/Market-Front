@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
 		bottom: 0,
 		zIndex: 5,
 		width: '100%',
+		[theme.breakpoints.down(370)]: {
+			fontSize: 14,
+		},
 	},
 	fixHeiht: {
 		height: 300,

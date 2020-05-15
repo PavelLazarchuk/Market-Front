@@ -5,6 +5,11 @@ const useStyles = makeStyles((theme) => ({
 		width: 350,
 		height: 275,
 		borderRadius: 5,
+		margin: '0 auto',
+		[theme.breakpoints.down(500)]: {
+			width: 275,
+			height: 200,
+		},
 	},
 	notimg: {
 		width: 350,
@@ -15,6 +20,16 @@ const useStyles = makeStyles((theme) => ({
 	flex: {
 		display: 'flex',
 		justifyContent: 'space-around',
+		[theme.breakpoints.down(740)]: {
+			textAlign: 'center',
+			flexDirection: 'column',
+		},
+	},
+
+	flexitemImg: {
+		display: 'flex',
+		flexBasis: '40%',
+		flexDirection: 'column',
 	},
 	flexitem: {
 		paddingTop: 15,
@@ -24,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		marginBottom: 30,
 		alignItems: 'center',
+		[theme.breakpoints.down(740)]: {
+			justifyContent: 'center',
+		},
 	},
 	price: {
 		fontSize: 24,

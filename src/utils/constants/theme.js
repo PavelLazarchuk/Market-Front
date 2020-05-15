@@ -9,6 +9,7 @@ export const LIGHT = createMuiTheme({
 		paper: '#fbf7f4', //#ffffff
 		backgroundColor: '#fbf7f4', //#d5fcbb
 		font: '"Open Sans", sans-serif',
+		backgroundComment: '#f5f5f5',
 	},
 	breakpoints: {
 		values: {
@@ -30,6 +31,7 @@ export const DARK = createMuiTheme({
 		cardColor: '#424242',
 		textColor: '#c9ced9',
 		backgroundColor: '#424242',
+		backgroundComment: '#424242',
 		font: '"Open Sans", sans-serif',
 	},
 	breakpoints: {

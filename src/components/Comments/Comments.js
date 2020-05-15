@@ -1,17 +1,17 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import PageWrap from 'shared/PageWrap';
-import ProductComments from './CompanyComments/Comments';
-import AdminComments from './CandidateComments/Comments';
+import useStyles from './styles';
+import ProductComment from './ProductComment';
 
-const Comment = () => (
-	<PageWrap text="Комментарі">
-		<Switch>
-			<Route path="/product/comment" component={ProductComments} />
-			<Route path="/admin/comment" component={AdminComments} />
-		</Switch>
-	</PageWrap>
-);
+const Comments = ({ list, product }) => {
+	const classes = useStyles();
+	return <ProductComment name={product.name} comments={list} classes={classes} />;
+};
 
-export default Comment;
+const mstp = ({ comment, product }) => ({
+	list: comment.comments,
+	product: product.product,
+});
+
+export default connect(mstp)(Comments);

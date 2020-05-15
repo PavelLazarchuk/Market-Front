@@ -10,7 +10,7 @@ const OneProduct = ({ product, getOneProduct, cleanOneProduct }) => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		getOneProduct(id);
+		getOneProduct(`${id}?comment=${id}`);
 		return () => {
 			cleanOneProduct();
 		};

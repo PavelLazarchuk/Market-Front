@@ -1,97 +1,60 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-	reviewItem: {
-		padding: '0 20px',
+	root: {
+		padding: 20,
+		marginTop: 25,
+		borderRadius: 10,
+		border: '1px solid #e4e4e4',
+		background: theme.palette.backgroundComment,
+	},
+
+	title: {
+		fontSize: 16,
+		fontWeight: 400,
+	},
+
+	err: {
+		fontSize: 16,
 		color: theme.palette.textColor,
 	},
 
-	reviewListUser: {
-		display: 'flex',
-		fontFamily: theme.palette.font,
-		justifyContent: 'space-between',
-		fontSize: '16px',
-		lineHeight: '24px',
-		width: '100%',
-		margin: '12px 0',
-	},
-
-	reviewListName: {
-		fontSize: '16px',
-		fontWeight: 'bold',
-		lineHeight: '24px',
-		letterSpacing: '0.15px',
-	},
-
-	reviewListPosition: {
-		float: 'left',
-		fontSize: '12px',
-		lineHeight: '24px',
-		letterSpacing: '0.15px',
-		margin: '12px 0',
-	},
-
-	reviewListDate: {
-		fontSize: '14px',
-		letterSpacing: '0.15px',
-		color: theme.palette.color,
-	},
-
-	reviewListFooter: {
-		display: 'flex',
-		flexDirection: 'row',
-	},
-
-	reviewListAnswer: {
-		marginRight: '40px',
-		textDecorationLine: 'underline',
+	btn: {
+		fontSize: 14,
+		marginBottom: 20,
+		color: '#ffffff',
+		background: '#5bba5b',
+		textTransform: 'none',
 		'&:hover': {
-			cursor: 'pointer',
+			background: '#26a69a',
 		},
 	},
 
-	text: {
-		fontFamily: theme.palette.font,
-		fontSize: '14px',
-		lineHeight: '24px',
-		letterSpacing: '0.15px',
+	right: {
+		textAlign: 'right',
 	},
 
-	divider: {
-		background: '#E6EBFF',
-		border: 0,
-		height: '2px',
+	item: {
+		padding: '15px 0',
+		borderTop: '0.7px solid  #e4e4e4',
 	},
 
 	flex: {
 		display: 'flex',
+		marginBottom: 10,
+		alignItems: 'center',
+		justifyContent: 'space-between',
 	},
 
-	icon: {
-		fontSize: '22px',
-		cursor: 'pointer',
+	name: {
+		fontSize: 18,
+		fontWeight: 'bold',
+		color: theme.palette.color,
+	},
+
+	text: {
+		fontSize: 14,
 		color: theme.palette.textColor,
-		margin: '0 5px',
-	},
-
-	textarea: {
-		fontFamily: theme.palette.font,
-		fontSize: '14px',
-		lineHeight: '24px',
-		height: '100px',
-		resize: 'none',
-		width: '100%',
-	},
-
-	report: {
-		fontFamily: 'Open Sans, sans-serif',
-		fontSize: '14px',
-		color: 'red',
-		textAlign: 'right',
-		border: 0,
-		cursor: 'pointer',
-		backgroundColor: 'transparent',
-		textDecorationLine: 'underline',
 	},
 }));
 
