@@ -9,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	title: {
 		fontSize: 18,
-		color: theme.palette.color,
 		marginBottom: 20,
+		textAlign: 'center',
+		color: theme.palette.color,
 	},
 	flex: {
 		display: 'flex',
@@ -20,11 +21,7 @@ const useStyles = makeStyles((theme) => ({
 	img: {
 		width: 150,
 		height: 100,
-		margin: '0 10px 10px 0',
-	},
-	notimg: {
-		width: 150,
-		height: 100,
+		display: 'block',
 		background: '#999999',
 		margin: '0 10px 10px 0',
 	},

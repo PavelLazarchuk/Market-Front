@@ -6,17 +6,13 @@ const useStyles = makeStyles((theme) => ({
 		height: 275,
 		borderRadius: 5,
 		margin: '0 auto',
+		background: '#999999',
 		[theme.breakpoints.down(500)]: {
 			width: 275,
 			height: 200,
 		},
 	},
-	notimg: {
-		width: 350,
-		height: 275,
-		borderRadius: 5,
-		background: '#999999',
-	},
+
 	flex: {
 		display: 'flex',
 		justifyContent: 'space-around',

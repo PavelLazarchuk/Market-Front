@@ -11,7 +11,7 @@ const AddToOrder = ({ absolute, data, addToOrder }) => {
 	const classes = useStyles();
 	const add = (e) => {
 		e.preventDefault();
-		const item = {};
+		const item = { name: data.name, price: data.currentPrice };
 		addToOrder(item);
 	};
 

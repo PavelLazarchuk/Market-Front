@@ -7,11 +7,7 @@ import AddToOrder from 'components/Order/AddToOrder';
 
 const ProductItem = ({ _id, image, name, company, currentPrice, description, classes, data }) => (
 	<Link to={`/product/item/${_id}`} className={classes.item}>
-		{image ? (
-			<img src={image} alt="prod" className={classes.img} />
-		) : (
-			<div className={classes.notimg}>This is image</div>
-		)}
+		<img src={image} className={classes.img} alt={name} />
 		<div className={classes.content}>
 			<Text className={classes.caption}>{name}</Text>
 			<Text className={classes.company}>

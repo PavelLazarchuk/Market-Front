@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Text from 'shared/Text';
 import useStyles from './styles';
@@ -21,15 +21,16 @@ const Information = ({
 }) => {
 	const classes = useStyles();
 
+	useEffect(() => {
+		document.title = `${name} for ${company}`;
+		return () => (document.title = 'Market');
+	}, [name, company]);
+
 	return (
 		<PageWrap title={name}>
 			<div className={classes.flex}>
 				<div className={classes.flexitemImg}>
-					{image ? (
-						<img src={image} alt="product" className={classes.img} />
-					) : (
-						<div className={classes.notimg}>This is image</div>
-					)}
+					<img src={image} className={classes.img} alt={name} />
 					<OtherProduct id={_id} subId={subCategoryId} />
 				</div>
 				<div className={classes.flexitem}>

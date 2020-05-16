@@ -22,19 +22,23 @@ const useStyles = makeStyles((theme) => ({
 			marginBottom: 10,
 		},
 	},
+	small: {
+		maxWidth: '600px !important',
+	},
 }));
 
-const PageWrap = ({ title, children }) => {
+const PageWrap = ({ size, title, children }) => {
 	const classes = useStyles();
 	return (
 		<Container>
 			<Title>{title}</Title>
-			<Paper className={classes.root}>{children}</Paper>
+			<Paper className={`${classes.root} ${size && classes.small}`}>{children}</Paper>
 		</Container>
 	);
 };
 
 PageWrap.propTypes = {
+	size: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	children: PropTypes.node.isRequired,
 };

@@ -25,10 +25,7 @@ const useStyles = makeStyles((theme) => ({
 	img: {
 		height: 200,
 		width: '100%',
-	},
-	notimg: {
-		height: 200,
-		width: '100%',
+		display: 'block',
 		background: '#999999',
 	},
 	content: {
