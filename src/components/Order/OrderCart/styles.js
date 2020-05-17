@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 	err: {
 		fontSize: 24,
+		marginBottom: 15,
 		textAlign: 'center',
 		color: theme.palette.textColor,
 	},
@@ -12,33 +13,63 @@ const useStyles = makeStyles((theme) => ({
 	},
 
 	item: {
+		display: 'flex',
 		padding: '10px',
 		marginBottom: 10,
-		borderTop: `1px solid ${theme.palette.textColor}`,
-	},
-
-	itemElem: {
-		display: 'flex',
 		alignItems: 'center',
-		justifyContent: 'flex-start',
+		justifyContent: 'space-between',
+		borderTop: `1px solid ${theme.palette.textColor}`,
 	},
 
 	key: {
 		fontSize: 20,
-		marginRight: 10,
+		fontWeight: 'bold',
 		color: theme.palette.color,
+		[theme.breakpoints.down(550)]: {
+			fontSize: 16,
+		},
 	},
 
 	value: {
 		fontSize: 18,
+		fontWeight: 400,
 		color: theme.palette.textColor,
+		[theme.breakpoints.down(550)]: {
+			fontSize: 14,
+		},
 	},
 
 	total: {
 		fontSize: 24,
+		marginTop: 10,
 		textAlign: 'right',
-		margin: '10px 20px 0 0',
 		color: theme.palette.color,
+	},
+
+	msg: {
+		fontSize: 12,
+		marginTop: 10,
+		color: theme.palette.textColor,
+	},
+
+	btnFlex: {
+		marginTop: 15,
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
+
+	btn: {
+		width: 150,
+		color: '#ffffff',
+		background: '#26a69a',
+		textTransform: 'none',
+		'&:hover': {
+			background: '#5cb95c',
+		},
+		[theme.breakpoints.down(450)]: {
+			width: 120,
+		},
 	},
 }));
 

@@ -3,7 +3,7 @@ import axios from 'axios';
 import toastr from 'utils/toastr/toastrValid';
 import { GET, PUT, POST, DELETE } from 'utils/constants/method';
 
-const BASE_URL = 'http://localhost:5000/';
+const BASE_URL = 'http://localhost:5000/'; // https://heroku-market-place.herokuapp.com/
 
 class API {
 	get(url, body, headers) {

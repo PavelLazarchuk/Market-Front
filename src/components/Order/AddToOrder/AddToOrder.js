@@ -7,12 +7,18 @@ import useStyles from './styles';
 import Button from 'shared/Button';
 import { addToOrder } from 'store/order/action';
 
-const AddToOrder = ({ absolute, data, addToOrder }) => {
+const AddToOrder = ({ absolute, list, data, addToOrder }) => {
 	const classes = useStyles();
 	const add = (e) => {
 		e.preventDefault();
-		const item = { name: data.name, price: data.currentPrice };
-		addToOrder(item);
+		const item = {
+			id: data._id,
+			name: data.name,
+			price: data.currentPrice,
+			productNo: data.productNo,
+			quantity: data.orderQuantity ? data.orderQuantity : 1,
+		};
+		addToOrder(list, item);
 	};
 
 	return (
@@ -23,4 +29,8 @@ const AddToOrder = ({ absolute, data, addToOrder }) => {
 	);
 };
 
-export default connect(null, { addToOrder })(AddToOrder);
+const mstp = ({ order }) => ({
+	list: order.orderList,
+});
+
+export default connect(mstp, { addToOrder })(AddToOrder);
