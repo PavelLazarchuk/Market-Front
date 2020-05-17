@@ -27,11 +27,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 	menuFlex: {
 		display: 'flex',
-		flexDirection: 'column',
 		alignItems: 'center',
+		flexDirection: 'column',
+		[theme.breakpoints.down(450)]: {
+			display: 'none',
+		},
 	},
 	cart: {
-		marginRight: 10,
+		marginRight: 20,
 		position: 'relative',
 		color: theme.palette.color,
 	},
@@ -48,9 +51,6 @@ const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.down(500)]: {
 			padding: '5px',
 			width: 100,
-		},
-		[theme.breakpoints.down(390)]: {
-			width: 70,
 		},
 	},
 }));

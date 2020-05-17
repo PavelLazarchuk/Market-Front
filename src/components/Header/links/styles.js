@@ -49,6 +49,14 @@ const useStyles = makeStyles((theme) => ({
 		color: theme.palette.color,
 		border: `1px solid ${theme.palette.color}`,
 	},
+
+	search: {
+		padding: 20,
+		borderRadius: 6,
+		color: theme.palette.color,
+		background: '#ebedf0',
+		border: 0,
+	},
 }));
 
 export default useStyles;

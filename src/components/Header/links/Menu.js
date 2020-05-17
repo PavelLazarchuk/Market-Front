@@ -23,6 +23,7 @@ const Menu = ({ open, setHidden }) => {
 				disableBackdropTransition={!iOS}
 			>
 				<Links className={classes.width} click={setHidden} />
+				<input placeholder="Search..." className={classes.search} />
 			</SwipeableDrawer>
 		</div>
 	);
