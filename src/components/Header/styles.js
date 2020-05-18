@@ -29,29 +29,14 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		alignItems: 'center',
 		flexDirection: 'column',
-		[theme.breakpoints.down(450)]: {
+		[theme.breakpoints.down(550)]: {
 			display: 'none',
 		},
 	},
 	cart: {
-		marginRight: 20,
+		marginRight: 25,
 		position: 'relative',
 		color: theme.palette.color,
-	},
-	search: {
-		marginBottom: 10,
-		padding: '5px 20px',
-		borderRadius: 6,
-		color: theme.palette.color,
-		background: '#ebedf0',
-		border: 0,
-		[theme.breakpoints.down(700)]: {
-			marginBottom: 0,
-		},
-		[theme.breakpoints.down(500)]: {
-			padding: '5px',
-			width: 100,
-		},
 	},
 }));
 

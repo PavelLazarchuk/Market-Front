@@ -5,12 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 	input: {
 		outline: 'none',
-		boxShadow: 'inset 0 0 0 50px #fff',
-		fontFamily: theme.palette.font,
-		textFillColor: '#000',
-		'&:hover': {
-			border: `1px solid #acadb1`,
-		},
+		borderRadius: 4,
+		border: '1px solid #acadb1',
+		color: theme.palette.textColor,
+		background: theme.palette.paper,
+		textFillColor: theme.palette.textColor,
 		'&:focus': {
 			border: `1px solid ${theme.palette.color}`,
 		},
@@ -23,12 +22,12 @@ const Input = ({ min, step, type, name, value, onChange, className, placeholder 
 		<input
 			min={min}
 			step={step}
-			type={type}
 			name={name}
+			value={value}
 			onChange={onChange}
-			defaultValue={value}
+			type={type && 'text'}
 			placeholder={placeholder}
-			className={`${className} ${classes.input}`}
+			className={`${classes.input} ${className}`}
 		/>
 	);
 };
@@ -36,8 +35,8 @@ const Input = ({ min, step, type, name, value, onChange, className, placeholder 
 Input.propTypes = {
 	min: PropTypes.number,
 	step: PropTypes.number,
+	type: PropTypes.string,
 	placeholder: PropTypes.string,
-	type: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,

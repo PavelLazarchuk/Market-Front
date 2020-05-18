@@ -51,11 +51,35 @@ const useStyles = makeStyles((theme) => ({
 	},
 
 	search: {
-		padding: 20,
+		width: 200,
+		paddingLeft: 5,
 		borderRadius: 6,
+		marginBottom: 10,
+		background: theme.palette.paper,
+		[theme.breakpoints.down(700)]: {
+			marginBottom: 0,
+		},
+		'& .MuiInputBase-input': {
+			color: theme.palette.color,
+		},
+		'& .MuiInput-underline:before': {
+			display: 'none',
+		},
+	},
+
+	searchBig: {
+		width: '100%',
+		padding: '10px 5px',
+	},
+
+	linkSearch: {
+		width: '100%',
+		padding: '5px 0',
+		textDecoration: 'none',
 		color: theme.palette.color,
-		background: '#ebedf0',
-		border: 0,
+		'&:hover': {
+			textDecoration: 'underline',
+		},
 	},
 }));
 

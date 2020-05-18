@@ -1,4 +1,4 @@
-import { ADD_PRODUCT, CLEAN_ORDER, CHANGE_ORDER } from './types';
+import { ADD_PRODUCT, CLEAN_ORDER, CHANGE_ORDER, ADD_ORDER } from './types';
 
 const initialState = {
 	order: null,
@@ -7,6 +7,12 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
+		case ADD_ORDER:
+			return {
+				...state,
+				order: action.payload,
+			};
+
 		case ADD_PRODUCT:
 			return {
 				...state,

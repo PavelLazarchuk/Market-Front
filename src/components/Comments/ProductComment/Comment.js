@@ -21,7 +21,7 @@ const ProductComments = ({ name, comments, classes, hidden, setHidden }) => (
 				</div>
 			</>
 		)}
-		{!hidden && <Form />}
+		{!hidden && <Form setHidden={setHidden} />}
 
 		{comments.length === 0 && (
 			<Text className={classes.err}>There are no reviews for this product, be the first</Text>

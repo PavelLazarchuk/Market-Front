@@ -65,10 +65,20 @@ const useStyles = makeStyles((theme) => ({
 		background: '#26a69a',
 		textTransform: 'none',
 		'&:hover': {
-			background: '#5cb95c',
+			background: 'red',
 		},
 		[theme.breakpoints.down(450)]: {
 			width: 120,
+		},
+	},
+
+	link: {
+		padding: 10,
+		borderRadius: 4,
+		textAlign: 'center',
+		textDecoration: 'none',
+		'&:hover': {
+			background: '#5cb95c',
 		},
 	},
 }));

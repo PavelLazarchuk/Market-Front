@@ -3,6 +3,7 @@ import { compose, withState, withHandlers } from 'recompose';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 
 import Links from './Links';
+import Search from './Search';
 import useStyles from './styles';
 import Button from 'shared/Button';
 
@@ -23,7 +24,7 @@ const Menu = ({ open, setHidden }) => {
 				disableBackdropTransition={!iOS}
 			>
 				<Links className={classes.width} click={setHidden} />
-				<input placeholder="Search..." className={classes.search} />
+				<Search size="big" />
 			</SwipeableDrawer>
 		</div>
 	);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Link from 'shared/Link';
 import Text from 'shared/Text';
 import useStyles from './styles';
 import Button from 'shared/Button';
@@ -11,7 +12,8 @@ import PresentMenu from 'components/Home/PresentMenu';
 
 const OrderCart = ({ list, cleanOrder }) => {
 	const classes = useStyles();
-	const getTotalPrice = (arr) => arr.reduce((sum, elem) => sum + elem.price * elem.quantity, 0);
+	const getTotalPrice = () => list.reduce((sum, elem) => sum + elem.price * elem.quantity, 0);
+	const total = getTotalPrice();
 
 	return (
 		<PageWrap title="Order list" size="small">
@@ -30,7 +32,9 @@ const OrderCart = ({ list, cleanOrder }) => {
 							<OrderItem key={elem.name} classes={classes} {...elem} />
 						))}
 
-						<Text className={classes.total}>Total price: {getTotalPrice(list)} &#8372;</Text>
+						<Text className={classes.total}>
+							Total price: {total >= 1000 ? total : total + 50} &#8372;
+						</Text>
 						<Text className={classes.msg}>
 							When order up to 1000 UAH - delivery of 50 UAH by courier in Kiev, and more than 1000
 							- delivery is free!
@@ -39,9 +43,9 @@ const OrderCart = ({ list, cleanOrder }) => {
 							<Button className={classes.btn} onClick={cleanOrder}>
 								Clean order
 							</Button>
-							<Button className={classes.btn} onClick={cleanOrder}>
+							<Link className={`${classes.btn} ${classes.link}`} to="/order/make">
 								Make order
-							</Button>
+							</Link>
 						</div>
 					</>
 				)}

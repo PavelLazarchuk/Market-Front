@@ -1,8 +1,15 @@
 import { ERROR } from 'utils/actions/errorAxios';
-import { GET_ONE_PRODUCT, GET_PRODUCT_LIST, CLEAN_PRODUCT, CLEAN_LIST } from './types';
+import {
+	CLEAN_LIST,
+	CLEAN_PRODUCT,
+	GET_ONE_PRODUCT,
+	GET_ALL_PRODUCT,
+	GET_PRODUCT_LIST,
+} from './types';
 
 const initialState = {
 	product: null,
+	allProduct: [],
 	productList: null,
 	addProduct: null,
 	error: null,
@@ -22,6 +29,13 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				productList: null,
+			};
+
+		case GET_ALL_PRODUCT:
+			return {
+				...state,
+				isError: false,
+				allProduct: action.payload,
 			};
 
 		case GET_ONE_PRODUCT:
