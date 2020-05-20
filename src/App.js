@@ -6,8 +6,12 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 import Preloader from 'shared/Preloader';
 import { LIGHT, DARK } from 'utils/constants/theme';
+import AdminRoute from './components/Admin/AdminRoute';
+import PrivateRoute from 'components/Admin/PrivateRouter';
+
 const MainPage = lazy(() => import('./pages/MainPage'));
 const AdminPage = lazy(() => import('./pages/AdminPage'));
+const SellerPage = lazy(() => import('./pages/SellerPage'));
 const ReduxToastr = lazy(() => import('./shared/ReduxToastr'));
 
 const App = ({ theme }) => {
@@ -16,7 +20,8 @@ const App = ({ theme }) => {
 		<ThemeProvider theme={type}>
 			<Suspense fallback={<Preloader />}>
 				<Switch>
-					<Route path="/admin" component={AdminPage} />
+					<AdminRoute path="/admin" component={AdminPage} />
+					<PrivateRoute path="/seller" component={SellerPage} />
 					<Route path="/" component={MainPage} />
 				</Switch>
 				<ReduxToastr />

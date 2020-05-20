@@ -1,9 +1,9 @@
-import jwt_decode from 'jwt-decode';
-
 import API from 'services/api';
 import setAuthToken from 'utils/setAuthToken';
+import toastr from 'utils/toastr/toastrAction';
 import actionFactory from 'utils/actions/actionFactory';
-import { ERROR, SET_USER, LOGOUT, SUCCESS, CLEAR, SET_ADMIN } from './types';
+import { ERROR, LOGOUT, SUCCESS, CLEAR } from './types';
+import { setCurrentUser, setCurrentAdmin } from './helpers';
 
 const error = actionFactory(ERROR);
 const clearMsg = actionFactory(CLEAR);
@@ -25,35 +25,6 @@ export const registerUser = (user, history) => (dispatch) => {
 		});
 };
 
-export const setCurrentUser = (token) => {
-	const encryptId = token.slice(7);
-	const id = jwt_decode(encryptId);
-	return {
-		type: SET_USER,
-		payload: id,
-	};
-};
-
-export const setCurrentAdmin = (token) => {
-	const encryptId = token.slice(7);
-	const id = jwt_decode(encryptId);
-	return {
-		type: SET_ADMIN,
-		payload: id,
-	};
-};
-
-export const getUser = (token) => {
-	if (token) {
-		const encryptId = token.slice(7);
-		const id = jwt_decode(encryptId);
-		setAuthToken(token);
-		return id;
-	} else {
-		return {};
-	}
-};
-
 export const loginUser = (user, history) => (dispatch) => {
 	API.post('login', user)
 		.then((data) => {
@@ -62,19 +33,18 @@ export const loginUser = (user, history) => (dispatch) => {
 				localStorage.setItem('token', token);
 				setAuthToken(token);
 				dispatch(setCurrentUser(token));
-				history.push(`/${data.type}`);
+				history.push('/seller');
 				return;
 			} else {
-				dispatch(error(data.errors));
+				toastr(data);
 			}
-			setTimeout(() => dispatch(clearMsg()), 3000);
 		})
 		.catch((err) => {
 			dispatch(error(err));
 		});
 };
 
-export const loginAdmin = (user, history) => (dispatch) => {
+export const loginAdmin = (user) => (dispatch) => {
 	API.post('admin', user)
 		.then((data) => {
 			if (data.token) {
@@ -82,13 +52,10 @@ export const loginAdmin = (user, history) => (dispatch) => {
 				localStorage.setItem('adminToken', token);
 				setAuthToken(localStorage.adminToken);
 				dispatch(setCurrentAdmin(token));
-
-				history.push('/admin');
 				return;
 			} else {
-				dispatch(error(data.errors));
+				toastr(data);
 			}
-			setTimeout(() => dispatch(clearMsg()), 3000);
 		})
 		.catch((err) => {
 			dispatch(error(err));

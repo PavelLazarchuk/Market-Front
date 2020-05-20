@@ -14,6 +14,7 @@ const AddToOrder = ({ absolute, list, data, addToOrder }) => {
 		const item = {
 			id: data._id,
 			name: data.name,
+			seller: data.seller,
 			price: data.currentPrice,
 			productNo: data.productNo,
 			quantity: data.orderQuantity ? data.orderQuantity : 1,

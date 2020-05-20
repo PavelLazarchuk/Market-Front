@@ -1,7 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-
-import withIsLogin from 'hoc/withIsLogin';
 
 const PrivateRoute = ({ component: Component, isLogin, ...rest }) => (
 	<Route
@@ -10,4 +9,8 @@ const PrivateRoute = ({ component: Component, isLogin, ...rest }) => (
 	/>
 );
 
-export default withIsLogin(PrivateRoute);
+const mstp = ({ auth }) => ({
+	isLogin: auth.isAuthenticated,
+});
+
+export default connect(mstp)(PrivateRoute);

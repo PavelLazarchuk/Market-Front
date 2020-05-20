@@ -1,34 +1,33 @@
-import { getUser } from './authActions';
+import { getUser } from './helpers';
 import { SET_USER, ERROR, LOGOUT, SUCCESS, CLEAR, SET_ADMIN } from './types';
 
 const initialState = {
 	isAuthenticated: localStorage.token ? true : false,
 	isAdmin: localStorage.adminToken ? true : false,
 	user: getUser(localStorage.token),
-	errors: { status: '' },
-	success: { status: '' },
+	error: null,
 };
 
-export default function (state = initialState, action) {
+export default (state = initialState, action) => {
 	switch (action.type) {
 		case SET_USER:
 			return {
 				...state,
-				errors: {},
+				error: null,
 				isAuthenticated: true,
 				user: action.payload,
 			};
 		case SET_ADMIN:
 			return {
 				...state,
-				errors: {},
+				error: null,
 				isAdmin: true,
 				user: action.payload,
 			};
 		case ERROR:
 			return {
 				...state,
-				errors: action.payload,
+				error: action.payload,
 			};
 
 		case LOGOUT:
@@ -41,17 +40,16 @@ export default function (state = initialState, action) {
 		case CLEAR:
 			return {
 				...state,
-				errors: {},
-				success: {},
+				error: null,
 			};
 
 		case SUCCESS:
 			return {
 				...state,
-				errors: {},
+				error: null,
 				success: action.payload,
 			};
 		default:
 			return state;
 	}
-}
+};

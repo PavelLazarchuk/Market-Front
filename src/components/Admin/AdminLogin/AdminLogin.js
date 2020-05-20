@@ -1,45 +1,28 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import TextField from '@material-ui/core/TextField';
 
 import useStyle from './styles';
-import Button from 'shared/Buttonn';
+import Button from 'shared/Button';
 import PageWrap from 'shared/PageWrap';
-import Validator from 'shared/Validator';
-import { loginAdmin } from 'store/auth/action/authActions';
+import { loginAdmin } from 'store/auth/authActions';
 
-function handleOnSubmit(email, password, props) {
-	const user = {
-		email,
-		password,
-	};
-	props.loginAdmin(user, props.history);
-}
-
-function Login(props) {
-	const [email, setEmail] = useState('');
+const Login = ({ history, loginAdmin }) => {
+	const classes = useStyle();
+	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
 
-	const classes = useStyle();
-	const { errors, success } = props.auth;
-	const { t } = useTranslation();
+	const onSubmit = () => {
+		loginAdmin({ login, password });
+	};
 
 	return (
 		<div className={classes.main}>
-			<PageWrap title={t('ADMIN')}>
-				<Validator type={errors} />
-				<Validator type={success} />
+			<PageWrap title="Admin login">
 				<div className={classes.flex}>
-					<form
-						onSubmit={(e) => {
-							e.preventDefault();
-							handleOnSubmit(email, password, props);
-						}}
-						className={classes.fields}
-					>
+					<form className={classes.fields}>
 						<TextField
-							label={t('LOGIN')}
+							label="Login"
 							name="email"
 							variant="outlined"
 							type="email"
@@ -47,13 +30,12 @@ function Login(props) {
 							margin="normal"
 							onChange={(e) => {
 								e.preventDefault();
-								setEmail(e.target.value.toLowerCase());
+								setLogin(e.target.value);
 							}}
-							value={email}
+							value={login}
 						/>
-						<Validator type={errors} field="email" />
 						<TextField
-							label={t('PASSWORD')}
+							label="Password"
 							name="password"
 							variant="outlined"
 							fullWidth
@@ -65,18 +47,15 @@ function Login(props) {
 								setPassword(e.target.value);
 							}}
 						/>
-						<Validator type={errors} field="password" />
 
-						<Button className={classes.btn} size="large" name={t('CONTINUE')} type="submit" />
+						<Button className={classes.btn} onClick={onSubmit} color="primary">
+							CONTINUE
+						</Button>
 					</form>
 				</div>
 			</PageWrap>
 		</div>
 	);
-}
+};
 
-const mapStateToProps = (state) => ({
-	auth: state.auth,
-});
-
-export default connect(mapStateToProps, { loginAdmin })(Login);
+export default connect(null, { loginAdmin })(Login);
