@@ -24,7 +24,7 @@ const Menu = ({ open, setHidden }) => {
 				disableBackdropTransition={!iOS}
 			>
 				<Links className={classes.width} click={setHidden} />
-				<Search size="big" />
+				<Search size="big" onClick={setHidden} />
 			</SwipeableDrawer>
 		</div>
 	);

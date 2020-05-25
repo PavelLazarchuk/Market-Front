@@ -6,7 +6,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Link from 'shared/Link';
 import useStyles from './styles';
 
-const Search = ({ list, size }) => {
+const Search = ({ list, size, onClick }) => {
 	const classes = useStyles();
 	return (
 		<Autocomplete
@@ -16,7 +16,7 @@ const Search = ({ list, size }) => {
 			getOptionLabel={(option) => option.name}
 			className={`${size && classes.searchBig}  ${classes.search}`}
 			renderOption={(option) => (
-				<Link to={`/product/item/${option._id}`} className={classes.linkSearch}>
+				<Link to={`/product/item/${option._id}`} onClick={onClick} className={classes.linkSearch}>
 					{option.name + ' ' + option.currentPrice}&#8372;
 				</Link>
 			)}

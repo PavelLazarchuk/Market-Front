@@ -28,6 +28,6 @@ export const getUser = (token) => {
 		setAuthToken(token);
 		return id;
 	} else {
-		return {};
+		return null;
 	}
 };

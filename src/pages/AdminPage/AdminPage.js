@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
-const AdminPage = () => (
-	<div>
-		<div>AdminPage</div>
-	</div>
+import './css/style.css';
+import Preloader from 'shared/Preloader';
+const DefaultLayout = lazy(() => import('./containers'));
+
+const App = () => (
+	<Suspense fallback={<Preloader />}>
+		<DefaultLayout />
+	</Suspense>
 );
 
-export default AdminPage;
+export default App;

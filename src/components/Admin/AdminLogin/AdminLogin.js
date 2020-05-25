@@ -7,7 +7,7 @@ import Button from 'shared/Button';
 import PageWrap from 'shared/PageWrap';
 import { loginAdmin } from 'store/auth/authActions';
 
-const Login = ({ history, loginAdmin }) => {
+const Login = ({ loginAdmin }) => {
 	const classes = useStyle();
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
