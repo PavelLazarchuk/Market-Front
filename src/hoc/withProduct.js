@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import getDisplayName from 'utils/getDisplayName';
 import { getAllProduct } from 'store/product/action';
 
-const withProduct = (Component) => {
+const withProduct = Component => {
 	const WithProduct = ({ product, getAllProduct, ...props }) => {
 		useEffect(() => {
 			getAllProduct();

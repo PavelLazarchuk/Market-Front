@@ -1,12 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
 	err: {
 		fontSize: 24,
 		textAlign: 'center',
 		color: theme.palette.textColor,
 	},
 	flex: {
+		padding: '10px 0',
 		display: 'flex',
 		flexWrap: 'wrap',
 		alignItems: 'center',
@@ -18,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: 'center',
 		'&:hover': {
 			boxShadow: '0px 5px 10px rgba(230, 235, 255, 0.5)',
+		},
+		'&:last-child': {
+			margin: '0 5px 0 0',
 		},
 		[theme.breakpoints.down(700)]: {
 			flexBasis: '45%',

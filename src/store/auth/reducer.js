@@ -33,7 +33,8 @@ export default (state = initialState, action) => {
 		case LOGOUT:
 			return {
 				...state,
-				user: {},
+				user: null,
+				isAdmin: false,
 				isAuthenticated: false,
 			};
 

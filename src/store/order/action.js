@@ -8,8 +8,8 @@ const addOrder = actionFactory(ADD_ORDER);
 const change = actionFactory(CHANGE_ORDER);
 const addProduct = actionFactory(ADD_PRODUCT);
 
-export const addToOrder = (arr, data) => (dispatch) => {
-	const index = arr.find((el) => el.id === data.id);
+export const addToOrder = (arr, data) => dispatch => {
+	const index = arr.find(el => el.id === data.id);
 	if (index) {
 		toastr.info('This product is already in the cart');
 	} else {
@@ -17,16 +17,16 @@ export const addToOrder = (arr, data) => (dispatch) => {
 	}
 };
 
-export const deleteItem = (id, arr) => (dispatch) => {
-	const index = arr.findIndex((el) => el.id === id);
+export const deleteItem = (id, arr) => dispatch => {
+	const index = arr.findIndex(el => el.id === id);
 	if (index >= 0) {
 		const newArr = arr.filter((el, i) => i !== index);
 		dispatch(change(newArr));
 	}
 };
 
-export const updateItem = (id, arr, value) => (dispatch) => {
-	const index = arr.findIndex((el) => el.id === id);
+export const updateItem = (id, arr, value) => dispatch => {
+	const index = arr.findIndex(el => el.id === id);
 	if (index >= 0) {
 		arr[index].quantity = value;
 		const newArr = arr.map((elem, i) => {
@@ -38,4 +38,4 @@ export const updateItem = (id, arr, value) => (dispatch) => {
 };
 
 export const postOrder = actionApiFactory('orders', POST, addOrder);
-export const cleanOrder = () => (dispatch) => dispatch({ type: CLEAN_ORDER });
+export const cleanOrder = () => dispatch => dispatch({ type: CLEAN_ORDER });

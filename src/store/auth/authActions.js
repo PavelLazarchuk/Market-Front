@@ -9,9 +9,9 @@ const error = actionFactory(ERROR);
 const clearMsg = actionFactory(CLEAR);
 const success = actionFactory(SUCCESS);
 
-export const registerUser = (user, history) => (dispatch) => {
+export const registerUser = (user, history) => dispatch => {
 	API.post('register', user)
-		.then((data) => {
+		.then(data => {
 			if (data.errors) {
 				dispatch(error(data.errors));
 			} else {
@@ -20,14 +20,14 @@ export const registerUser = (user, history) => (dispatch) => {
 			}
 			setTimeout(() => dispatch(clearMsg()), 3000);
 		})
-		.catch((err) => {
+		.catch(err => {
 			dispatch(error(err));
 		});
 };
 
-export const loginUser = (user, history) => (dispatch) => {
+export const loginUser = (user, history) => dispatch => {
 	API.post('login', user)
-		.then((data) => {
+		.then(data => {
 			if (data.token) {
 				const { token } = data;
 				localStorage.setItem('token', token);
@@ -39,14 +39,14 @@ export const loginUser = (user, history) => (dispatch) => {
 				toastr(data);
 			}
 		})
-		.catch((err) => {
+		.catch(err => {
 			dispatch(error(err));
 		});
 };
 
-export const loginAdmin = (user) => (dispatch) => {
+export const loginAdmin = user => dispatch => {
 	API.post('admin', user)
-		.then((data) => {
+		.then(data => {
 			if (data.token) {
 				const { token } = data;
 				localStorage.setItem('adminToken', token);
@@ -57,24 +57,29 @@ export const loginAdmin = (user) => (dispatch) => {
 				toastr(data);
 			}
 		})
-		.catch((err) => {
+		.catch(err => {
 			dispatch(error(err));
 		});
 };
 
-export const logOut = (history) => (dispatch) => {
-	dispatch({
-		type: LOGOUT,
-	});
+export const logOutAdmin = history => dispatch => {
+	dispatch({ type: LOGOUT });
+	setAuthToken();
+	localStorage.removeItem('adminToken');
+	history.push('/admin');
+};
+
+export const logOut = history => dispatch => {
+	dispatch({ type: LOGOUT });
 	setAuthToken();
 	localStorage.removeItem('token');
 	history.push('/login');
 };
 
-export const emailConfirm = (data, history) => (dispatch) => {
-	API.post('mailconfirm', data)
-		.then((data) => {
-			if (data.status === 'success') {
+export const emailConfirm = (body, history) => dispatch => {
+	API.post('mailconfirm', body)
+		.then(data => {
+			if (data.statusText === 'success') {
 				dispatch(success(data));
 				history.push('/login');
 			} else {
@@ -82,15 +87,15 @@ export const emailConfirm = (data, history) => (dispatch) => {
 			}
 			setTimeout(() => dispatch(clearMsg()), 3000);
 		})
-		.catch((err) => {
+		.catch(err => {
 			dispatch(error(err));
 		});
 };
 
-export const setPass = (data, history) => (dispatch) => {
+export const setPass = (data, history) => dispatch => {
 	API.post('setpassword', data)
-		.then((data) => {
-			if (data.status === 'success') {
+		.then(data => {
+			if (data.statusText === 'success') {
 				dispatch(success(data));
 				history.push('/login');
 			} else {
@@ -98,7 +103,7 @@ export const setPass = (data, history) => (dispatch) => {
 			}
 			setTimeout(() => dispatch(clearMsg()), 3000);
 		})
-		.catch((err) => {
+		.catch(err => {
 			dispatch(error(err));
 		});
 };

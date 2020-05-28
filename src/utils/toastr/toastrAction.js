@@ -1,9 +1,11 @@
 import { toastr } from 'react-redux-toastr';
 
 const toastrAction = (requestData, msg) => {
-	requestData.status.toLowerCase() === 'success'
-		? toastr.success(requestData.status, msg)
-		: toastr.error(requestData.status, requestData.message);
+	const message = requestData.message || msg;
+
+	requestData.statusText.toLowerCase() === 'success'
+		? message && toastr.success('Success', message)
+		: toastr.error(`Error ${requestData.status}`, requestData.message);
 };
 
 export default toastrAction;

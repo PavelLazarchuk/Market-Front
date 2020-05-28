@@ -18,7 +18,7 @@ const Login = ({ loginAdmin }) => {
 
 	return (
 		<div className={classes.main}>
-			<PageWrap title="Admin login">
+			<PageWrap title="Admin login" size="small">
 				<div className={classes.flex}>
 					<form className={classes.fields}>
 						<TextField
@@ -28,7 +28,7 @@ const Login = ({ loginAdmin }) => {
 							type="email"
 							fullWidth
 							margin="normal"
-							onChange={(e) => {
+							onChange={e => {
 								e.preventDefault();
 								setLogin(e.target.value);
 							}}
@@ -42,7 +42,7 @@ const Login = ({ loginAdmin }) => {
 							margin="normal"
 							type="password"
 							value={password}
-							onChange={(e) => {
+							onChange={e => {
 								e.preventDefault();
 								setPassword(e.target.value);
 							}}

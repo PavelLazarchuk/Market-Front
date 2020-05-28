@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from 'utils/setAuthToken';
 import { SET_USER, SET_ADMIN } from './types';
 
-export const setCurrentUser = (token) => {
+export const setCurrentUser = token => {
 	const encryptId = token.slice(7);
 	const id = jwt_decode(encryptId);
 	return {
@@ -12,7 +12,7 @@ export const setCurrentUser = (token) => {
 	};
 };
 
-export const setCurrentAdmin = (token) => {
+export const setCurrentAdmin = token => {
 	const encryptId = token.slice(7);
 	const id = jwt_decode(encryptId);
 	return {
@@ -21,7 +21,7 @@ export const setCurrentAdmin = (token) => {
 	};
 };
 
-export const getUser = (token) => {
+export const getUser = token => {
 	if (token) {
 		const encryptId = token.slice(7);
 		const id = jwt_decode(encryptId);

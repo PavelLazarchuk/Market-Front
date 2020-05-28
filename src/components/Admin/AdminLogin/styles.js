@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles(theme => ({
 	main: {
 		backgroundColor: theme.palette.backgroundColor,
 		position: 'relative',
 		height: '100vh',
-		padding: '60px',
+		paddingTop: 1,
 	},
 	flex: {
 		display: 'flex',
@@ -38,7 +38,7 @@ const useStyle = makeStyles((theme) => ({
 	},
 	fields: {
 		[theme.breakpoints.up('sm')]: {
-			width: '40%',
+			width: '60%',
 			marginRight: '25px',
 		},
 		'& label.Mui-focused': {

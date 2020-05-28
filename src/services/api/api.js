@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { toastr } from 'react-redux-toastr';
 
-import toastr from 'utils/toastr/toastrValid';
 import { GET, PUT, POST, DELETE } from 'utils/constants/method';
 
 const BASE_URL = 'http://localhost:5000/'; // https://heroku-market-place.herokuapp.com/
@@ -39,8 +39,10 @@ class API {
 	sendRequest(url, requestParams) {
 		return new Promise((resolve, reject) => {
 			axios(`${BASE_URL + url}`, requestParams)
-				.then((result) => resolve(result.data))
-				.catch((reason) => {
+				.then(result => {
+					resolve(result.data);
+				})
+				.catch(reason => {
 					this.requestFailed(reason);
 					reject(reason);
 				});
@@ -49,9 +51,9 @@ class API {
 
 	requestFailed(reason) {
 		if (reason && reason.message) {
-			toastr(reason.message);
+			toastr.error('ERROR', reason.message);
 		} else {
-			toastr('An error has occurred');
+			toastr.error('ERROR', 'An error has occurred');
 		}
 	}
 }

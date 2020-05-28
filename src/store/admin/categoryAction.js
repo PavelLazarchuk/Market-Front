@@ -7,4 +7,4 @@ const getAll = actionFactory(SUCCESS_CATEGORY);
 const setCategor = actionFactory(SET_CATEGORY);
 
 export const getAllCategory = actionApiFactory('categories', GET, getAll);
-export const setCategory = (name) => (dispatch) => dispatch(setCategor(name));
+export const setCategory = name => dispatch => dispatch(setCategor(name));

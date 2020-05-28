@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 import './index.css';
 import App from './App';
@@ -10,13 +11,14 @@ import onStart from 'utils/onStart';
 import * as serviceWorker from './serviceWorker';
 
 onStart(localStorage);
+export const history = createBrowserHistory();
 
 ReactDOM.render(
-	<BrowserRouter>
-		<Provider store={store}>
+	<Provider store={store}>
+		<Router history={history}>
 			<App />
-		</Provider>
-	</BrowserRouter>,
+		</Router>
+	</Provider>,
 	document.getElementById('root'),
 );
 

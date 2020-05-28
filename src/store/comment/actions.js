@@ -5,6 +5,4 @@ import actionApiFactory from 'utils/actions/actionWithApiFactory';
 
 const addComment = actionFactory(ADD_COMMENT);
 
-const addMsg = 'Коментар успішно створено';
-
-export const addReview = actionApiFactory('reviews', POST, addComment, addMsg);
+export const addReview = actionApiFactory('reviews', POST, addComment);

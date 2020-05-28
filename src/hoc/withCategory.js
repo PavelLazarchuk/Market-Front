@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import getDisplayName from 'utils/getDisplayName';
 import { getAllCategory } from 'store/admin/categoryAction';
 
-const withCategory = (Component) => {
+const withCategory = Component => {
 	const WithCategory = ({ category, getAllCategory, ...props }) => {
 		useEffect(() => {
 			getAllCategory();

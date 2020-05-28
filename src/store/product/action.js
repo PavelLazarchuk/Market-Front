@@ -15,6 +15,6 @@ const getProducts = actionFactory(GET_PRODUCT_LIST);
 
 export const getAllProduct = actionApiFactory('products', GET, getAll);
 export const getOneProduct = actionApiFactory('products/', GET, getProduct);
+export const cleanProductList = () => dispatch => dispatch({ type: CLEAN_LIST });
 export const getProductByFilter = actionApiFactory('products?', GET, getProducts);
-export const cleanProductList = () => (dispatch) => dispatch({ type: CLEAN_LIST });
-export const cleanOneProduct = () => (dispatch) => dispatch({ type: CLEAN_PRODUCT });
+export const cleanOneProduct = () => dispatch => dispatch({ type: CLEAN_PRODUCT });
