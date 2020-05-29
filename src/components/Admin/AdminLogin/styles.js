@@ -2,10 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyle = makeStyles(theme => ({
 	main: {
-		backgroundColor: theme.palette.backgroundColor,
-		position: 'relative',
+		paddingTop: 60,
 		height: '100vh',
-		paddingTop: 1,
+		position: 'relative',
+		backgroundColor: theme.palette.backgroundColor,
 	},
 	flex: {
 		display: 'flex',
