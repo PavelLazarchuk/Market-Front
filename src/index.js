@@ -8,7 +8,6 @@ import './index.css';
 import App from './App';
 import store from './store';
 import onStart from 'utils/onStart';
-import * as serviceWorker from './serviceWorker';
 
 onStart(localStorage);
 export const history = createBrowserHistory();
@@ -21,5 +20,3 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById('root'),
 );
-
-serviceWorker.register();
